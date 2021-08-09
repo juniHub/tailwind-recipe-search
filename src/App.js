@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './App.css';
 import Axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import Recipe from './components/Recipe';
 import Alert from './components/Alert';
+import logo from './assets/avocado-logo-blue.png'
 
 function App() {
   const [query, setQuery] = useState('');
@@ -19,14 +19,14 @@ function App() {
     if (query !== '') {
       const result = await Axios.get(url);
       if (!result.data.more) {
-        return setAlert('No food with such name');
+        return setAlert('Sorry, no menu with such name. Please try again!');
       }
       console.log(result);
       setRecipes(result.data.hits);
       setQuery('');
       setAlert('');
     } else {
-      setAlert('Please fill the form');
+      setAlert('Please fill in the required field!');
     }
   };
 
@@ -38,28 +38,42 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Recipe Search App</h1>
+    <div className="container mx-auto my-32 px-4 sm:px-0">
+      <div className="flex flex-col flex-wrap">
+        <header className="flex flex-col items-center justify-center">
+           <img className="col-start-2 col-span-4 text-center w-20 h-20 m-4" src={logo} alt="logo" />
+        <h1 className="app-title col-start-2 col-span-4 text-center">What would you like for Menu today?</h1>
       </header>
 
-      <form onSubmit={onSubmit} style={{ marginBottom: '2rem' }}>
-        {alert !== '' && <Alert alert={alert} />}
+    
+      <form className="flex items-center justify-center gap-4 p-4 md:p-8" onSubmit={onSubmit} style={{ marginBottom: '2rem' }}>
+       
         <input
-          className="form-input"
+          className="border-4 border-blue-900 focus:border-blue-800 hover:border-blue-800"
           type="text"
           name="query"
           onChange={onChange}
           value={query}
           autoComplete="off"
-          placeholder="Search Food"
+          placeholder="Search Menu Here"
         />
-        <button className="form-button">Search</button>
-      </form>
-      <div className="recipes">
+        <button className="font-bold text-blue-900 bg-yellow-500 rounded-full py-1 px-6">Search</button>
+        </form>
+
+           {alert !== '' && <Alert alert={alert} />}
+    
+      
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
         {recipes !== [] &&
-          recipes.map((recipe) => <Recipe key={uuidv4()} recipe={recipe} />)}
-      </div>
+            recipes.map( ( recipe ) =>
+            
+                <Recipe key={ uuidv4() } recipe={ recipe } />
+              ) }
+     
+   
+        </div>
+        </div>
     </div>
   );
 }
