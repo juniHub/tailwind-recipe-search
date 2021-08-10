@@ -37,18 +37,18 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto my-20 px-4 sm:px-0">
-      <div className="flex flex-col flex-wrap">
-        <header className="flex flex-col items-center justify-center">
+    
+      <body className="flex flex-col min-h-screen">
+        <header className="flex flex-col items-center justify-center pt-8">
            <img className="inline-block w-20 h-20 m-4" src={logo} alt="logo" />
-        <h1 className="font-bold capitalize text-blue-900 text-center text-lg">What would you like for Menu today?</h1>
+        <h1 className="font-bold capitalize text-blue-600 text-center text-lg">What would you like for Menu today?</h1>
       </header>
 
-    
+     <main class="flex-grow">
       <form className="flex items-center justify-center gap-4 p-4 md:p-8" onSubmit={onSubmit} style={{ marginBottom: '2rem' }}>
        
         <input
-          className="border-4 border-blue-900 focus:border-blue-800 hover:border-blue-800"
+          className="focus:outline-none border-2 border-blue-900 rounded-full py-1 px-6"
           type="text"
           name="query"
           onChange={onChange}
@@ -72,8 +72,15 @@ function App() {
      
    
         </div>
-        </div>
-    </div>
+        </main>
+
+      <footer className="pt-8">
+        <div className="bg-blue-900 text-white text-center p-4">Made with <a target="_blank" rel="noopener noreferal" href="https://tailwindcss.com/">TailwindCSS</a> and <a href="https://developer.edamam.com/" target="_blank" rel="noopener noreferrer"> Edamam API</a></div>
+     </footer>
+       
+      </body>
+      
+
   );
 }
 
