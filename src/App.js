@@ -75,7 +75,7 @@ function App() {
         </main>
 
       <footer className="pt-8">
-        <div className="bg-blue-900 text-white text-center p-4">Made with <a target="_blank" rel="noopener noreferal" href="https://tailwindcss.com/">TailwindCSS</a> and <a href="https://developer.edamam.com/" target="_blank" rel="noopener noreferrer"> Edamam API</a></div>
+        <div className="bg-blue-900 text-white text-center p-4">Made with <a target="_blank" rel="noopener noreferrer" href="https://tailwindcss.com/">TailwindCSS</a> and <a href="https://developer.edamam.com/" target="_blank" rel="noopener noreferrer"> Edamam API</a></div>
      </footer>
        
       </body>
