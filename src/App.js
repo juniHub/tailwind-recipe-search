@@ -45,7 +45,7 @@ function App() {
       </header>
 
      <main class="flex-grow">
-      <form className="flex items-center justify-center gap-4 p-4 md:p-8" onSubmit={onSubmit} style={{ marginBottom: '2rem' }}>
+      <form className="flex flex-col items-center justify-center gap-4 p-4 md:p-8" onSubmit={onSubmit} style={{ marginBottom: '2rem' }}>
        
         <input
           className="focus:outline-none border-2 border-blue-900 rounded-full py-1 px-6"
