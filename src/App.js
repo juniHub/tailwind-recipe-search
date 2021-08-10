@@ -21,7 +21,6 @@ function App() {
       if (!result.data.more) {
         return setAlert('Sorry, no menu with such name. Please try again!');
       }
-      console.log(result);
       setRecipes(result.data.hits);
       setQuery('');
       setAlert('');
@@ -38,11 +37,11 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto my-32 px-4 sm:px-0">
+    <div className="container mx-auto my-20 px-4 sm:px-0">
       <div className="flex flex-col flex-wrap">
         <header className="flex flex-col items-center justify-center">
-           <img className="col-start-2 col-span-4 text-center w-20 h-20 m-4" src={logo} alt="logo" />
-        <h1 className="app-title col-start-2 col-span-4 text-center">What would you like for Menu today?</h1>
+           <img className="inline-block w-20 h-20 m-4" src={logo} alt="logo" />
+        <h1 className="font-bold capitalize text-blue-900 text-center text-lg">What would you like for Menu today?</h1>
       </header>
 
     

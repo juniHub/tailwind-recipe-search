@@ -7,12 +7,11 @@
 
 body {
  font-family: 'Merriweather',serif;
-background: url("https://res.cloudinary.com/dafolrlpj/image/upload/v1628427788/gallery/z5wjnvk52eozguohltlt.png");
+ background: url("https://res.cloudinary.com/dafolrlpj/image/upload/v1628427788/gallery/z5wjnvk52eozguohltlt.png");
 }
 
-.app-title {
-  font-size: 2rem;
-  font-family:'Rye',cursive;
-  color: #1a2967
+h1 {
+    font-family:'Rye',cursive;
+  
 }
 
