@@ -44,11 +44,7 @@ function App() {
         <h1 className="font-bold capitalize text-blue-600 text-center text-lg">What would you like for Menu today?</h1>
       </header>
 
-<<<<<<< HEAD
      <main class="container mx-auto px-4 flex-grow">
-=======
-     <main class="flex-grow">
->>>>>>> 6353d2f0c5a87fb921be01ddb93eb75f2add594b
       <form className="flex flex-col items-center justify-center gap-4 p-4 md:p-8" onSubmit={onSubmit} style={{ marginBottom: '2rem' }}>
        
         <input
