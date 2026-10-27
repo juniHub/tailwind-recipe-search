@@ -16,25 +16,26 @@ function App() {
   const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${encodeURIComponent(query)}&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
   const getData = async () => {
-    if (query !== '') {
-      const result = await Axios.get(url);
-      if (!result.data.more) {
-        return setAlert('Sorry, no menu with such name. Please try again!');
-      }
-      setRecipes(result.data.hits);
-      setQuery('');
-      setAlert('');
-    } else {
-      setAlert('Please fill in the required field!');
+  if (query === '') {
+    return setAlert('Please fill in the required field!');
+  }
+
+  try {
+    const result = await Axios.get(url);
+    console.log(result.data); // remove once it works
+
+    if (!result.data.hits || result.data.hits.length === 0) {
+      return setAlert('Sorry, no menu with such name. Please try again!');
     }
-  };
 
-  const onChange = (e) => setQuery(e.target.value);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    getData();
-  };
+    setRecipes(result.data.hits);
+    setQuery('');
+    setAlert('');
+  } catch (err) {
+    console.log(err.response?.status, err.response?.data);
+    setAlert('Something went wrong. Please try again later.');
+  }
+};
 
   return (
     
