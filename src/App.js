@@ -37,6 +37,13 @@ function App() {
   }
 };
 
+ const onChange = (e) => setQuery(e.target.value);
+
+ const onSubmit = (e) => {
+  e.preventDefault();
+  getData();
+};
+
   return (
     
       <body className="flex flex-col min-h-screen">
